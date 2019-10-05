@@ -32,6 +32,21 @@ else
 end
 ```
 
+Or if you're extreme:
+
+```lua
+if #nvim.list_bufs() > 1 then
+	if not nvim.bo.modifiable then
+		nvim.ex.bd()
+	else
+		nvim.command("w | bd")
+	end
+else
+	nvim.ex.xit()
+end
+```
+
+
 ## Installation
 
 ```vim
