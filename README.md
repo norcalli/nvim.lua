@@ -92,27 +92,44 @@ NOTE: Since `!` isn't a valid identifier character, you can use `_` at the end t
 
 ### Variable shortcuts
 
+#### `nvim.g` 
+
 - `nvim.g` can be used to get/set `g:` global variables.
 	- e.g. `nvim.g.variable == g:variable`
 	- `nvim.g.variable = 123` or `nvim.g.variable = nil` to delete the variable
 	- `:h nvim_get_var` `:h nvim_set_var` `:h nvim_del_var` for more
+
+#### `nvim.v` 
+
 - `nvim.v` can be used to get/set `v:` variables.
 	- e.g. `nvim.v.count1 == v:count1`
 	- Useful `v:` variables, `v:register`, `v:count1`, etc..
 	- `nvim.v.variable = 123` to set the value (when not read-only).
 	- `:h nvim_get_vvar` `:h nvim_set_vvar` for more
+
+#### `nvim.b` 
+
 - `nvim.b` can be used to get/set `b:` buffer variables for the current buffer.
 	- e.g. `nvim.b.variable == b:variable`
 	- `nvim.b.variable = 123` or `nvim.b.variable = nil` to delete the variable
 	- `:h nvim_buf_get_var` `:h nvim_buf_set_var` `:h nvim_buf_del_var` for more
+
+#### `nvim.env` 
+
 - `nvim.env` can be used to get/set environment variables.
 	- e.g. `nvim.env.PWD == $PWD`
 	- `nvim.env.TEST = 123` to set the value. Equivalent to `let $TEST = 123`.
 	- `:h setreg` `:h setreg` for more. These aren't API functions.
+
+#### `nvim.o` 
+
 - `nvim.o` can be used to get/set global options, as in `:h options` which are set through `set`.
 	- e.g. `nvim.o.shiftwidth == &shiftwidth`
 	- `nvim.o.shiftwidth = 8` is equivalent to `set shiftwidth=8` or `let &shiftwidth = 8`
 	- `:h nvim_get_option` `:h nvim_set_option` for more.
+
+#### `nvim.bo` 
+
 - `nvim.bo` can be used to get/set **buffer** options, as in `:h options` which are set through `setlocal`.
 	- Only for the current buffer.
 	- e.g. `nvim.bo.shiftwidth == &shiftwidth`
