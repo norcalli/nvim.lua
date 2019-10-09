@@ -102,6 +102,18 @@ return setmetatable({
 			end
     end
   });
+  w = setmetatable({}, {
+    __index = function(_, k)
+			return vim.api.nvim_win_get_var(0, k)
+		end;
+    __newindex = function(_, k, v)
+			if v == nil then
+				return vim.api.nvim_win_del_var(0, k)
+			else
+				return vim.api.nvim_win_set_var(0, k, v)
+			end
+    end
+  });
   o = setmetatable({}, {
     __index = function(_, k)
 			return vim.api.nvim_get_option(k)
@@ -116,6 +128,15 @@ return setmetatable({
 		end;
     __newindex = function(_, k, v)
 			return vim.api.nvim_buf_set_option(0, k, v)
+    end
+  });
+  wo = setmetatable({}, {
+    __index = function(_, k)
+			return vim.api.nvim_win_get_option(0, k)
+		end;
+    __newindex = function(_, k, v)
+			-- passing v == nil will clear the value, just like above.
+			return vim.api.nvim_win_set_option(0, k, v)
     end
   });
   env = setmetatable({}, {
