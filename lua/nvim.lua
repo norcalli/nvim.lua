@@ -1,3 +1,6 @@
+-- Bring vim into local scope.
+local vim = vim
+
 -- Equivalent to `echo vim.inspect(...)`
 local function nvim_print(...)
 	if select("#", ...) == 1 then
@@ -20,25 +23,25 @@ local function nvim_echo(...)
 end
 
 local window_options = {
-	          arab = true;       arabic = true;   breakindent = true; breakindentopt = true;
-	           bri = true;       briopt = true;            cc = true;           cocu = true;
-	          cole = true;  colorcolumn = true; concealcursor = true;   conceallevel = true;
-	           crb = true;          cuc = true;           cul = true;     cursorbind = true;
-	  cursorcolumn = true;   cursorline = true;          diff = true;            fcs = true;
-	           fdc = true;          fde = true;           fdi = true;            fdl = true;
-	           fdm = true;          fdn = true;           fdt = true;            fen = true;
-	     fillchars = true;          fml = true;           fmr = true;     foldcolumn = true;
-	    foldenable = true;     foldexpr = true;    foldignore = true;      foldlevel = true;
-	    foldmarker = true;   foldmethod = true;  foldminlines = true;    foldnestmax = true;
-	      foldtext = true;          lbr = true;           lcs = true;      linebreak = true;
-	          list = true;    listchars = true;            nu = true;         number = true;
-	   numberwidth = true;          nuw = true; previewwindow = true;            pvw = true;
+						arab = true;       arabic = true;   breakindent = true; breakindentopt = true;
+						 bri = true;       briopt = true;            cc = true;           cocu = true;
+						cole = true;  colorcolumn = true; concealcursor = true;   conceallevel = true;
+						 crb = true;          cuc = true;           cul = true;     cursorbind = true;
+		cursorcolumn = true;   cursorline = true;          diff = true;            fcs = true;
+						 fdc = true;          fde = true;           fdi = true;            fdl = true;
+						 fdm = true;          fdn = true;           fdt = true;            fen = true;
+			 fillchars = true;          fml = true;           fmr = true;     foldcolumn = true;
+			foldenable = true;     foldexpr = true;    foldignore = true;      foldlevel = true;
+			foldmarker = true;   foldmethod = true;  foldminlines = true;    foldnestmax = true;
+				foldtext = true;          lbr = true;           lcs = true;      linebreak = true;
+						list = true;    listchars = true;            nu = true;         number = true;
+		 numberwidth = true;          nuw = true; previewwindow = true;            pvw = true;
 	relativenumber = true;    rightleft = true;  rightleftcmd = true;             rl = true;
-	           rlc = true;          rnu = true;           scb = true;            scl = true;
-	           scr = true;       scroll = true;    scrollbind = true;     signcolumn = true;
-	         spell = true;   statusline = true;           stl = true;            wfh = true;
-	           wfw = true;        winbl = true;      winblend = true;   winfixheight = true;
-	   winfixwidth = true; winhighlight = true;         winhl = true;           wrap = true;
+						 rlc = true;          rnu = true;           scb = true;            scl = true;
+						 scr = true;       scroll = true;    scrollbind = true;     signcolumn = true;
+					 spell = true;   statusline = true;           stl = true;            wfh = true;
+						 wfw = true;        winbl = true;      winblend = true;   winfixheight = true;
+		 winfixwidth = true; winhighlight = true;         winhl = true;           wrap = true;
 }
 
 -- `nvim.$method(...)` redirects to `nvim.api.nvim_$method(...)`
@@ -161,27 +164,6 @@ nvim.b = new_buf_accessor(0)
 getmetatable(nvim.b).__call = function(_, bufnr)
 	return new_buf_accessor(bufnr)
 end
-local window_options = {
-						arab = true;       arabic = true;   breakindent = true; breakindentopt = true;
-						 bri = true;       briopt = true;            cc = true;           cocu = true;
-						cole = true;  colorcolumn = true; concealcursor = true;   conceallevel = true;
-						 crb = true;          cuc = true;           cul = true;     cursorbind = true;
-		cursorcolumn = true;   cursorline = true;          diff = true;            fcs = true;
-						 fdc = true;          fde = true;           fdi = true;            fdl = true;
-						 fdm = true;          fdn = true;           fdt = true;            fen = true;
-			 fillchars = true;          fml = true;           fmr = true;     foldcolumn = true;
-			foldenable = true;     foldexpr = true;    foldignore = true;      foldlevel = true;
-			foldmarker = true;   foldmethod = true;  foldminlines = true;    foldnestmax = true;
-				foldtext = true;          lbr = true;           lcs = true;      linebreak = true;
-						list = true;    listchars = true;            nu = true;         number = true;
-		 numberwidth = true;          nuw = true; previewwindow = true;            pvw = true;
-	relativenumber = true;    rightleft = true;  rightleftcmd = true;             rl = true;
-						 rlc = true;          rnu = true;           scb = true;            scl = true;
-						 scr = true;       scroll = true;    scrollbind = true;     signcolumn = true;
-					 spell = true;   statusline = true;           stl = true;            wfh = true;
-						 wfw = true;        winbl = true;      winblend = true;   winfixheight = true;
-		 winfixwidth = true; winhighlight = true;         winhl = true;           wrap = true;
-}
 local function new_buf_opt_accessor(bufnr)
 	local function get(k)
 		if window_options[k] then
@@ -212,3 +194,4 @@ getmetatable(nvim.wo).__call = function(_, winnr)
 end
 
 return nvim
+-- vim:et ts=2 sw=2
