@@ -4,8 +4,9 @@ local api = vim.api
 local inspect = vim.inspect
 
 local function extend(t, o)
+  local mt = getmetatable(t)
   for k, v in pairs(o) do
-    rawset(t, k, v)
+    rawset(mt, k, v)
   end
   return t
 end
