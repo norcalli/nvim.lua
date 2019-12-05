@@ -112,8 +112,8 @@ NOTE: Since `!` isn't a valid identifier character, you can use `_` at the end t
 #### nvim.b 
 
 - `nvim.b` can be used to get/set `b:` buffer variables for the current buffer.
-  - Can use `nvim.b(bufnr)` to target a different buffer than the current one.
-    - e.g. `nvim.b(bufnr).x = '123'`
+  - Can use `nvim.b[bufnr]` to target a different buffer than the current one.
+    - e.g. `nvim.b[bufnr].x = '123'`
   - e.g. `nvim.b.variable == b:variable`
   - `nvim.b.variable = 123` or `nvim.b.variable = nil` to delete the variable
   - `:h nvim_buf_get_var` `:h nvim_buf_set_var` `:h nvim_buf_del_var` for more
@@ -121,8 +121,8 @@ NOTE: Since `!` isn't a valid identifier character, you can use `_` at the end t
 #### nvim.w 
 
 - `nvim.w` can be used to get/set `w:` buffer variables for the current buffer.
-  - Can use `nvim.w(winnr)` to target a different window than the current one.
-    - e.g. `nvim.w(winnr).x = '123'`
+  - Can use `nvim.w[winnr]` to target a different window than the current one.
+    - e.g. `nvim.w[winnr].x = '123'`
   - e.g. `nvim.w.variable == w:variable`
   - `nvim.w.variable = 123` or `nvim.w.variable = nil` to delete the variable
   - `:h nvim_win_get_var` `:h nvim_win_set_var` `:h nvim_win_del_var` for more
@@ -145,8 +145,8 @@ NOTE: Since `!` isn't a valid identifier character, you can use `_` at the end t
 #### nvim.bo 
 
 - `nvim.bo` can be used to get/set **buffer** options, as in `:h options` which are set through `setlocal`.
-  - Can use `nvim.bo(bufnr)` to target a different buffer than the current one.
-    - e.g. `nvim.bo(bufnr).ft = 'markdown'`
+  - Can use `nvim.bo[bufnr]` to target a different buffer than the current one.
+    - e.g. `nvim.bo[bufnr].ft = 'markdown'`
   - Only for the current buffer.
   - e.g. `nvim.bo.shiftwidth == &shiftwidth`
   - `nvim.bo.shiftwidth = 8` is equivalent to `setlocal shiftwidth=8`
@@ -155,8 +155,8 @@ NOTE: Since `!` isn't a valid identifier character, you can use `_` at the end t
 #### nvim.wo 
 
 - `nvim.wo` can be used to get/set **window** options, as in `:h options` which are set through `set/setlocal`.
-  - Can use `nvim.wo(winnr)` to target a different window than the current one.
-    - e.g. `nvim.wo(winnr).wrap = false`
+  - Can use `nvim.wo[winnr]` to target a different window than the current one.
+    - e.g. `nvim.wo[winnr].wrap = false`
   - These are the valid options as of writing: `{ "arabic", "arab", "breakindent", "bri", "breakindentopt", "briopt", "colorcolumn", "cc", "concealcursor", "cocu", "conceallevel", "cole", "cursorbind", "crb", "cursorcolumn", "cuc", "cursorline", "cul", "diff", "fillchars", "fcs", "foldcolumn", "fdc", "foldenable", "fen", "foldexpr", "fde", "foldignore", "fdi", "foldlevel", "fdl", "foldmarker", "fmr", "foldmethod", "fdm", "foldminlines", "fml", "foldnestmax", "fdn", "foldtext", "fdt", "linebreak", "lbr", "list", "listchars", "lcs", "number", "nu", "numberwidth", "nuw", "previewwindow", "pvw", "relativenumber", "rnu", "rightleft", "rl", "rightleftcmd", "rlc", "scroll", "scr", "scrollbind", "scb", "signcolumn", "scl", "spell", "statusline", "stl", "winblend", "winbl", "winhighlight", "winhl", "winfixheight", "wfh", "winfixwidth", "wfw", "wrap" }`
   - e.g. `nvim.wo.foldlevel == &foldlevel`
   - `nvim.wo.foldlevel = 4` is equivalent to `setlocal foldlevel=4`
